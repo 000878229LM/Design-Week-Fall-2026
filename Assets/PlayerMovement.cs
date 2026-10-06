@@ -5,14 +5,12 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D Player;
     [SerializeField] float accel;
     [SerializeField] float friction;
-    [SerializeField] float max_velocity;
-    Vector2 accel_vector;
 
     // Update is called once per frame
     void Update()
     {
         Vector2 direction = new(0, 0);
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W ))
         {
             direction.y += 1.0f;
         }
@@ -28,8 +26,7 @@ public class PlayerMovement : MonoBehaviour
         {
             direction.x += 1.0f;
         }
-        accel_vector = Time.deltaTime * (Vector2.Normalize(direction) * accel + (Player.linearVelocity * friction));
-        Player.linearVelocity += accel_vector;
-        Vector2.ClampMagnitude(Player.linearVelocity, max_velocity);
+        Player.AddForce(((Vector2.Normalize(direction) * accel) + (Player.linearVelocity * friction)));
+        Vector2.ClampMagnitude(Player.linearVelocity, accel);
     }
 }
