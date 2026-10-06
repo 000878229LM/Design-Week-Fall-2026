@@ -6,14 +6,13 @@ public class ObjectDetection : MonoBehaviour
 {
     private GameObject heldObject;
     bool isHolding = false;
-
     bool canInteract = true;
 
     bool isOnCooldown = false;
     float interactCooldown = 0f;
     float interactCooldownDuration = 1f;
 
-    float speed = 1f; // temp
+    float speed = 2f; // temp
 
     void Start()
     {
@@ -39,8 +38,7 @@ public class ObjectDetection : MonoBehaviour
                 SpriteRenderer spriteRenderer = heldObject.GetComponent<SpriteRenderer>();
                 spriteRenderer.enabled = false;
 
-                BoxCollider2D collider = heldObject.GetComponent<BoxCollider2D>();
-                collider.enabled = false;
+                ColliderChecker();
 
                 isHolding = true;
                 isOnCooldown = true;
@@ -59,9 +57,17 @@ public class ObjectDetection : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (!isHolding)
+        if (!isHolding && collision.tag.Contains("box"))
         {
             heldObject = collision.gameObject;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!isHolding)
+        {
+            heldObject = null;
         }
     }
 
@@ -74,8 +80,7 @@ public class ObjectDetection : MonoBehaviour
                 SpriteRenderer spriteRenderer = heldObject.GetComponent<SpriteRenderer>();
                 spriteRenderer.enabled = true;
 
-                BoxCollider2D collider = heldObject.GetComponent<BoxCollider2D>();
-                collider.enabled = true;
+                ColliderChecker();
 
                 isHolding = false;
                 heldObject = null;
@@ -97,6 +102,21 @@ public class ObjectDetection : MonoBehaviour
             isOnCooldown = false;
             interactCooldown = 0;
             canInteract = true;
+        }
+    }
+
+    void ColliderChecker()
+    {
+        if (heldObject.GetComponent<Collider2D>() is BoxCollider2D)
+        {
+            BoxCollider2D collider = heldObject.GetComponent<BoxCollider2D>();
+            collider.enabled = !collider.enabled;
+        }
+
+        if (heldObject.GetComponent<Collider2D>() is PolygonCollider2D)
+        {
+            PolygonCollider2D collider = heldObject.GetComponent<PolygonCollider2D>();
+            collider.enabled = !collider.enabled;
         }
     }
 }
