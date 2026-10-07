@@ -21,30 +21,33 @@ public class ObjectDetection : MonoBehaviour
 
     void Update()
     {
-        InteractionCooldown();
-        ObjectPlacement();
-        movementTemp(); // temp
-
-        #region HoldingObject
-        if (isHolding)
+        if (!TimerMechanics.start && TimerMechanics.temp)
         {
-            heldObject.transform.position = transform.position;
-        }
+            InteractionCooldown();
+            ObjectPlacement();
+            movementTemp(); // temp
 
-        if (heldObject != null && canInteract && !isHolding)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
+            #region HoldingObject
+            if (isHolding)
             {
-                SpriteRenderer spriteRenderer = heldObject.GetComponent<SpriteRenderer>();
-                spriteRenderer.enabled = false;
-
-                ColliderChecker();
-
-                isHolding = true;
-                isOnCooldown = true;
+                heldObject.transform.position = transform.position;
             }
+
+            if (heldObject != null && canInteract && !isHolding)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    SpriteRenderer spriteRenderer = heldObject.GetComponent<SpriteRenderer>();
+                    spriteRenderer.enabled = false;
+
+                    ColliderChecker();
+
+                    isHolding = true;
+                    isOnCooldown = true;
+                }
+            }
+            #endregion
         }
-        #endregion
     }
 
     public void movementTemp() // temp
