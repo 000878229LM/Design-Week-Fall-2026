@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Unity.Mathematics;
 
 public class TimerMechanics : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class TimerMechanics : MonoBehaviour
 
     void Start()
     {
-        
+        temp = true;
+        timer = true;
     }
 
     void Update()
@@ -22,11 +24,11 @@ public class TimerMechanics : MonoBehaviour
 
     void Timer()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            temp = true;
-            timer = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    temp = true;
+        //    timer = true;
+        //}
 
         if (timer)
         {
@@ -40,6 +42,7 @@ public class TimerMechanics : MonoBehaviour
             start = true;
         }
 
-        gameTimer.text = timerDuration.ToString();
+        
+        gameTimer.text = (math.round(timerDuration * 10) / 10).ToString();
     }
 }
