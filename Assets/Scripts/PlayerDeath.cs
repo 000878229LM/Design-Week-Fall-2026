@@ -15,23 +15,32 @@ public class PlayerDeath : MonoBehaviour
         source = GetComponent<AudioSource>();
 
         playerCollider = GetComponent<Collider2D>();
-
-        GameObject bullet = GameObject.Find("Bullet");
-        bulletCollider = bullet.GetComponent<Collider2D>();
+        if (GameObject.Find("Bullet") != null)
+        {
+            
+        }
     }
 
     void Update()
     {
-        if (playerCollider.IsTouching(bulletCollider))
+        if (GameObject.Find("Bullet") != null)
         {
-            int number = Random.Range(1, 3);
-            if (number == 2)
+            GameObject bullet = GameObject.Find("Bullet");
+
+            bulletCollider = bullet.GetComponent<Collider2D>();
+
+            if (playerCollider.IsTouching(bulletCollider))
             {
-                source.PlayOneShot(deathClip); 
-            }
-            else
-            {
-                source.PlayOneShot(deathClip2);
+                int number = Random.Range(1, 2);
+
+                if (number == 0)
+                {
+                    source.PlayOneShot(deathClip);
+                }
+                else
+                {
+                    source.PlayOneShot(deathClip2);
+                }
             }
         }
     }
