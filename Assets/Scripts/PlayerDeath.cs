@@ -31,9 +31,9 @@ public class PlayerDeath : MonoBehaviour
 
             if (playerCollider.IsTouching(bulletCollider))
             {
-                int number = Random.Range(1, 3);
+                int number = Random.Range(1, 2);
 
-                if (number == 2)
+                if (number == 0)
                 {
                     source.PlayOneShot(deathClip);
                 }
