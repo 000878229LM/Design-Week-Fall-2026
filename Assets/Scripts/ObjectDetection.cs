@@ -10,7 +10,7 @@ public class ObjectDetection : MonoBehaviour
 
     bool isOnCooldown = false;
     float interactCooldown = 0f;
-    float interactCooldownDuration = 1f;
+    float interactCooldownDuration = 0.3f;
 
     float speed = 2f; // temp
 

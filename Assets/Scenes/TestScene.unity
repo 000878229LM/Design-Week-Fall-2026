@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 289163244}
   - component: {fileID: 289163243}
   - component: {fileID: 289163242}
+  - component: {fileID: 289163248}
   m_Layer: 0
   m_Name: TempPlayer
   m_TagString: Player
@@ -426,6 +427,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &289163248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289163241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e3183925a2b8142b97f7b1031136a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  Player: {fileID: 289163242}
+  accel: 5
+  friction: -1.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
