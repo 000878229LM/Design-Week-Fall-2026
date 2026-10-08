@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Vector3 postion;
     public Rigidbody2D Player;
     [SerializeField] float accel;
     [SerializeField] float friction;

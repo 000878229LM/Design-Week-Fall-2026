@@ -12,8 +12,6 @@ public class ObjectDetection : MonoBehaviour
     float interactCooldown = 0f;
     float interactCooldownDuration = 0.3f;
 
-    float speed = 2f; // temp
-
     void Start()
     {
 
@@ -25,7 +23,6 @@ public class ObjectDetection : MonoBehaviour
         {
             InteractionCooldown();
             ObjectPlacement();
-            movementTemp(); // temp
 
             #region HoldingObject
             if (isHolding)
@@ -48,14 +45,6 @@ public class ObjectDetection : MonoBehaviour
             }
             #endregion
         }
-    }
-
-    public void movementTemp() // temp
-    {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(h, v, 0);
-        transform.Translate(movement * speed * Time.deltaTime);
     }
 
     public void OnTriggerStay2D(Collider2D collision)
