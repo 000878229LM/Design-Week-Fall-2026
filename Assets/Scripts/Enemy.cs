@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     public AudioSource source;
     public AudioClip call;
+    public float timerBulletLaunch = 1000;
 
     public static bool isDead;
     void Start()
@@ -14,20 +15,24 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.Find("Bullet") == null)
+        if (timerBulletLaunch <= 0)
         {
-            source.PlayOneShot(call);
-            Vector3 enemyPos = transform.position;
-            GameObject currentBullet = Instantiate(bullet, enemyPos, Quaternion.identity);
-            currentBullet.name = "Bullet";
+            if (GameObject.Find("Bullet") == null)
+            {
+                source.PlayOneShot(call);
+                Vector3 enemyPos = transform.position;
+                GameObject currentBullet = Instantiate(bullet, enemyPos, Quaternion.identity);
+                currentBullet.name = "Bullet";
 
 
+            }
+            if (isDead)
+            {
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                spriteRenderer.enabled = false;
+            }
         }
-        if (isDead)
-        {
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.enabled = false;
-        }
+        else { timerBulletLaunch--; }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

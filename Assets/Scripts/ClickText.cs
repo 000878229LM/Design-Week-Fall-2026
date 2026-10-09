@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-using System.Collections;
-
 //https://docs.unity3d.com/ScriptReference/Events.UnityEvent.html
 //https://discussions.unity.com/t/onclick-event-for-ui-text/182600/2
 //https://gamedevbeginner.com/how-to-load-a-new-scene-in-unity-with-a-loading-screen/
@@ -28,7 +26,7 @@ public class ClickText : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("Level 1");
         }
     }
 }
