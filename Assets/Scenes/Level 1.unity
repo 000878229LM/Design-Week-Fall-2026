@@ -1674,13 +1674,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2832923681381901486, guid: 1deb89b264adcbb44a96c7120f373eb2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.39989316
+      objectReference: {fileID: 0}
+    - target: {fileID: 2832923681381901486, guid: 1deb89b264adcbb44a96c7120f373eb2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6395554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2832923681381901486, guid: 1deb89b264adcbb44a96c7120f373eb2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.90188676
+      objectReference: {fileID: 0}
     - target: {fileID: 3604643747282528625, guid: 1deb89b264adcbb44a96c7120f373eb2, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6261633953123970904, guid: 1deb89b264adcbb44a96c7120f373eb2, type: 3}
       propertyPath: timerBulletLaunch
-      value: 21000
+      value: 42000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806285402491972805, guid: 1deb89b264adcbb44a96c7120f373eb2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17364335
       objectReference: {fileID: 0}
     - target: {fileID: 6806285402491972805, guid: 1deb89b264adcbb44a96c7120f373eb2, type: 3}
       propertyPath: m_LocalPosition.x

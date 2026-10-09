@@ -8,7 +8,8 @@ public class BulletPhysics2LM : MonoBehaviour
     public Vector3 curPos; //Current bullet position
     public float rise, run, speed = 1f;
     public float getPlayerPosTimer;
-    bool isPlayerLoc = false;
+    bool isPlayerLoc;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +19,7 @@ public class BulletPhysics2LM : MonoBehaviour
         curPos = transform.position; //Location of bullet
          rise = player.position.y - curPos.y;
          run = player.position.x - curPos.x;
-        getPlayerPosTimer = 20000;
+        getPlayerPosTimer = 40000;
        
     }
 
@@ -26,22 +27,20 @@ public class BulletPhysics2LM : MonoBehaviour
     void Update()
     {
         //  Debug.Log("RISE position: " + rise);
-        if (getPlayerPosTimer <= 0)
-        {if (isPlayerLoc == false)
-            {
-                rise = player.position.y - curPos.y;
-                run = player.position.x - curPos.x;
-                locatToGo = player.position;
-                isPlayerLoc = false;
-            }
+
+        if (isPlayerLoc == false && getPlayerPosTimer == 0)
+        {
+            rise = player.position.y - curPos.y;
+            run = player.position.x - curPos.x;
+            isPlayerLoc = true;
+        }
+        else { getPlayerPosTimer--; }
 
             float slope = rise / run;
 
-            curPos.x += Mathf.Sign(run) * speed * Time.deltaTime;
-            curPos.y += Mathf.Sign(run) * slope * speed * Time.deltaTime;
+        curPos.x += Mathf.Sign(run) * speed * Time.deltaTime;
+        curPos.y += Mathf.Sign(run) * slope * speed * Time.deltaTime;
 
-            transform.position = curPos;
-        }
-        else { getPlayerPosTimer--; }
+        transform.position = curPos;
     }
 }

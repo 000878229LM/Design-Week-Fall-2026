@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        playerMovement = 20000;
+        playerMovement = 40000;
     }
 
     // Update is called once per frame

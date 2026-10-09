@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public static bool isDead;
     void Start()
     {
-        timerBulletLaunch = 20000;
+        timerBulletLaunch = 40000;
     }
 
     void Update()

@@ -50,6 +50,7 @@ public class GameTimer : MonoBehaviour
 
     public float GetCurrentTime()
     {
+        Debug.Log(currentTime);
         return currentTime;
     }
 }
