@@ -5,12 +5,12 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     public AudioSource source;
     public AudioClip call;
-    public float timerBulletLaunch = 1000;
+    public float timerBulletLaunch;
 
     public static bool isDead;
     void Start()
     {
-        
+        timerBulletLaunch = 20000;
     }
 
     void Update()
