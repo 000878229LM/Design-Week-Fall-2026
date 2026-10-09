@@ -6,7 +6,7 @@ public class BulletPhysics2LM : MonoBehaviour
     public Transform player; //Players location
     public Vector3 locatToGo; //The location the bullet should go
     public Vector3 curPos; //Current bullet position
-    public float rise, run, speed = 2f;
+    public float rise, run, speed = 1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,8 +22,8 @@ public class BulletPhysics2LM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("RISE position: " + rise);
-        Debug.Log("RUN position: " + run);
+      //  Debug.Log("RISE position: " + rise);
+       // Debug.Log("RUN position: " + run);
 
         
 
